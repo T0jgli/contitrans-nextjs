@@ -1,0 +1,59 @@
+@media print {
+    nav,
+    .carousel-fade,
+    #gallerycontainer,
+    #scrolltopbutton,
+    #map-div,
+    #footer-links,
+    #footer-social,
+    #buses-btngroup,
+    #buses-container > hr,
+    #formsubmitbtn,
+    #footer-opening,
+    #back-button {
+        display: none !important;
+        margin: 0 !important;
+    }
+    #footer-contact {
+        flex: 1 !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        color: black !important;
+    }
+    #form-container,
+    #deck3,
+    #deckmuzeum2,
+    #deckmuzeum5,
+    .streak,
+    .services__container {
+        page-break-after: always;
+    }
+    .page-footer,
+    .streak {
+        box-shadow: none !important;
+    }
+    #contibus-logo {
+        display: block !important;
+    }
+    .footer-copyright {
+        background: none !important;
+        position: fixed !important;
+        padding-bottom: 0 !important;
+        margin-left: 38% !important;
+        margin-right: 38% !important;
+        bottom: 0 !important;
+    }
+    #buses-text {
+        margin-bottom: 40px !important;
+    }
+    #buses-container,
+    #offerheader {
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .buses-others,
+    #offerheader {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}

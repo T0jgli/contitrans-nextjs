@@ -1,0 +1,78 @@
+.services__container {
+    .services__wrapper {
+        margin: 1rem auto 3rem auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        grid-gap: 32px;
+
+        @media (max-width: 990px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 650px) {
+            grid-template-columns: 1fr;
+        }
+
+        .services__card {
+            max-height: 375px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            background-color: whitesmoke;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.02);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .arrowdropup {
+                transition: all 0.3s !important;
+                &:hover {
+                    color: #fb3 !important;
+                }
+            }
+
+            .icon {
+                height: 300px;
+                width: 300px;
+                margin-bottom: 1.5rem;
+                transition: all 0.3s linear;
+                z-index: 3;
+
+                @media (max-width: 990px) {
+                    height: 260px;
+                    width: 260px;
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                    transition: all 0.3s linear;
+                    cursor: pointer;
+                    background-color: rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            .icon__edit {
+                transition: all 0.3s linear;
+                position: absolute;
+                width: 100px;
+                top: 15px;
+                left: 15px;
+            }
+
+            h4 {
+                margin-bottom: 2rem;
+                font-weight: 400;
+                transition: all 0.3s linear;
+                width: 100%;
+                text-align: center;
+
+                &:hover {
+                    cursor: default;
+                    opacity: 0.6;
+                    transition: all 0.3s linear;
+                }
+            }
+        }
+    }
+}

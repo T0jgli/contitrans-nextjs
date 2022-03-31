@@ -1,0 +1,217 @@
+//Table
+
+.busestable {
+    thead {
+        @media (max-width: 992px) {
+            display: none;
+            th {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+    tbody {
+        .tablesor {
+            @media (max-width: 992px) {
+                display: flex;
+                flex-flow: column wrap;
+                text-align: center;
+                .middletd {
+                    text-align: center;
+                }
+                .keprow {
+                    .thumbnailkep {
+                        width: 50%;
+                        margin-top: 10px;
+                        margin-bottom: 5px;
+                        &:hover {
+                            transform: scale(1.05, 1.05);
+                        }
+                    }
+                }
+                .dijaktext {
+                    text-align: center;
+                }
+            }
+            @media (min-width: 992px) {
+                .middletd {
+                    width: 60%;
+                }
+                .dijaktext {
+                    text-align: right;
+                }
+                .keprow {
+                    width: 20%;
+                    .thumbnailkep {
+                        width: 75%;
+                        transition: all 0.3s !important;
+
+                        &:hover {
+                            transform: scale(1.05, 1.05);
+                        }
+                    }
+                }
+            }
+            .morebtn {
+                svg {
+                    font-size: 1.75rem !important;
+                }
+            }
+        }
+    }
+}
+
+//Cards
+
+#buses-container {
+    width: 60%;
+
+    @media (min-width: 968px) and (max-width: 1639px) {
+        width: 80%;
+    }
+
+    @media (max-width: 968px) {
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+//TRUCKS
+#trucks-container {
+    width: 60%;
+
+    @media (min-width: 968px) and (max-width: 1639px) {
+        width: 80%;
+    }
+
+    @media (max-width: 968px) {
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.truckofferbtn {
+    width: 60px;
+    outline: 0;
+    border: 0;
+    right: 0.5rem;
+    line-height: 45px;
+    font-size: 1.625rem;
+    height: 60px;
+    vertical-align: middle;
+    position: absolute;
+    bottom: -4px;
+    border-radius: 50%;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+
+    transition: all 0.3s;
+
+    @media (max-width: 768px) {
+        right: 0.8rem;
+        bottom: 0;
+    }
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.muzeumbusz {
+    .muzeumcardbody {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        overflow: hidden;
+        background-color: #fff;
+        transition: all 1s;
+        cursor: pointer;
+        @media (max-width: 767px) and (min-width: 577px) {
+            padding: 0.5rem !important;
+        }
+        @media (max-width: 1200px) and (min-width: 768px) {
+            padding: 1rem !important;
+        }
+        @media (max-width: 1200px) and (min-width: 577px) {
+            .bustitle {
+                font-size: smaller !important;
+            }
+        }
+    }
+    .muzeumcardbody.close {
+        top: 100%;
+        transition: all 1s;
+        height: 4rem;
+        margin-top: -4rem;
+        border-bottom-left-radius: 0.6rem !important;
+        border-bottom-right-radius: 0.6rem !important;
+        opacity: 0.85;
+        @media (max-width: 767px) and (min-width: 577px) {
+            height: 2rem !important;
+            margin-top: -2rem !important;
+        }
+    }
+}
+
+.muzeumbtn {
+    transition: all 0.3s !important;
+
+    &:hover {
+        transform: scale(1.09, 1.09);
+    }
+}
+
+//Misc
+
+.ReactModal__Overlay {
+    z-index: 1031 !important;
+}
+
+.ril-caption {
+    justify-content: flex-end !important;
+}
+
+.ril__outer {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.onebus__container {
+    .buspict {
+        width: 78%;
+        min-width: 280px;
+        transition: 0.3s;
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+    .onebus__detailscontainer {
+        h2 {
+            letter-spacing: 0.75px;
+        }
+        .MuiSvgIcon-root {
+            color: #fb3 !important;
+        }
+    }
+    .otherpictures {
+        min-width: 280px;
+
+        img {
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+node_modules
+.next
+build
+.dockerignore
+Dockerfile
+Dockerfile.prod
+cypress
+.git

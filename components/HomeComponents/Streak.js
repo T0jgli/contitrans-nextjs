@@ -49,7 +49,7 @@ const Streak = () => {
                                             redraw={true}
                                             useEasing={true}
                                             duration={2}
-                                            end={80000}
+                                            end={100}
                                             separator={" "}
                                             suffix=" +"
                                         />
@@ -65,13 +65,13 @@ const Streak = () => {
                                             redraw={true}
                                             useEasing={true}
                                             duration={2}
-                                            end={100000}
+                                            end={2000}
                                             separator={" "}
                                             suffix=" +"
                                         />
                                     </h2>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">
-                                        {locale === "en" ? "Projects completed" : "Sikeres projekt"}
+                                        {locale === "en" ? "Projects completed" : "Sikeres fuvar"}
                                     </p>
                                 </div>
                                 <div className="mb-2 col-md-3">
@@ -95,13 +95,13 @@ const Streak = () => {
                                             redraw={true}
                                             useEasing={true}
                                             duration={2}
-                                            end={150}
+                                            end={2000000}
                                             separator={" "}
                                             suffix=" +"
                                         />
                                     </h2>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">
-                                        {locale === "en" ? "Visited country" : "Meglátogatott ország"}
+                                        {locale === "en" ? "Visited country" : "Levezetett kilóméter"}
                                     </p>
                                 </div>
                             </div>

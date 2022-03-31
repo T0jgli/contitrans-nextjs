@@ -21,8 +21,8 @@ const menuitems = [
     {
         href: "/towing",
         title: {
-            hu: "Autóbusz és kamion mentés",
-            en: "Our Trucks",
+            hu: "Autóbusz- és kamion mentés",
+            en: "Bus and truck towing",
         },
     },
 ];
@@ -107,6 +107,10 @@ const Navbar = () => {
                                                         : ""
                                                     : item.title.en === "Our Trucks"
                                                     ? router.pathname.includes("truck")
+                                                        ? "active"
+                                                        : ""
+                                                    : item.title.en === "Bus and truck towing"
+                                                    ? router.pathname === "/towing"
                                                         ? "active"
                                                         : ""
                                                     : ""

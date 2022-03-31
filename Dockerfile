@@ -15,7 +15,7 @@ RUN yarn install --production
 # add app
 COPY . ./
 RUN yarn run build
-EXPOSE 8083
+EXPOSE 8084
 
 # start app
 CMD ["yarn", "start"]

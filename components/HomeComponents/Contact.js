@@ -170,13 +170,13 @@ const Contact = () => {
                                     <li className="pb-2">
                                         <p>
                                             <MDBIcon far icon="envelope" className="pr-2 grey-text" />
-                                            contibus@neoline-contitrans.hu
+                                            contibus@contibus.hu
                                         </p>
                                     </li>
                                     <li className="pb-3">
                                         <p>
                                             <MDBIcon icon="envelope" className="pr-2 grey-text" />
-                                            buszrendeles@neoline-contitrans.hu
+                                            buszrendeles@contibus.hu
                                         </p>
                                     </li>
                                 </ul>
@@ -185,7 +185,7 @@ const Contact = () => {
                                     <li className="list-inline-item">
                                         <a
                                             aria-label="Facebook link"
-                                            href="https://www.facebook.com/Contibus-Neoline-432462590213055"
+                                            href="https://www.facebook.com/Neoline-ContiTrans-101101795149788"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             role="button"

@@ -21,12 +21,12 @@ export default async function formHandler(req, res) {
         const { subject, name, email, message } = req.body;
         try {
             const mail = {
-                from: `"Kapcsolat – ${name}" "admin@contibus.hu"`,
-                to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "admin@contibus.hu",
-                subject: `Kapcsolat > contibus.hu ${subject ? "| " + subject : ""}`,
+                from: `"Kapcsolat – ${name}" "admin@neoline-contitrans.hu"`,
+                to: process.env.NODE_ENV == "production" ? "buszrendeles@neoline-contitrans.hu" : "admin@neoline-contitrans.hu",
+                subject: `Kapcsolat > neoline-contitrans.hu ${subject ? "| " + subject : ""}`,
                 replyTo: email,
                 html: ` <html><body>
-                <h2>Kapcsolat űrlap a contibus.hu-n keresztül</h2>
+                <h2>Kapcsolat űrlap a neoline-contitrans.hu-n keresztül</h2>
                 <hr width="50%" style="margin-left: 0">
                 <p><span style="font-weight: bolder;">Név:</span> ${name}</p>
                 <p><span style="font-weight: bolder;">Email cím:</span> ${email}</p>

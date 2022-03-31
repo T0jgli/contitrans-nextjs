@@ -84,9 +84,9 @@ const OneTruckBody = ({ thistruck }) => {
                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                         <meta property="og:image" content={`https://${thistruck.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
                         <meta name="twitter:image" content={`https://${thistruck.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
-                        <meta property="og:url" content={`https://contibus.hu/truck/${thistruck.fields.id}`} />
-                        <link rel="alternate" hrefLang="en" href={`https://contibus.hu/en/truck/${thistruck.fields.id}`} />
-                        <link rel="alternate" hrefLang="hu" href={`https://contibus.hu/truck/${thistruck.fields.id}`} />
+                        <meta property="og:url" content={`https://neoline-contitrans.hu/truck/${thistruck.fields.id}`} />
+                        <link rel="alternate" hrefLang="en" href={`https://neoline-contitrans.hu/en/truck/${thistruck.fields.id}`} />
+                        <link rel="alternate" hrefLang="hu" href={`https://neoline-contitrans.hu/truck/${thistruck.fields.id}`} />
                     </Head>
                     <div className="onebus__container w-75 mx-auto my-5 pt-3">
                         <div className="row">

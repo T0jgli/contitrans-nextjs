@@ -21,8 +21,8 @@ function Notfound() {
             <Head>
                 <title>{locale === "en" ? "Contibus - Specialist Coach Travel" : "Contibus - Az utazás szakértői"}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <meta property="og:image" content="https://contibus.hu/img/3.jpg" />
-                <meta name="twitter:image" content="https://contibus.hu/img/3.jpg" />
+                <meta property="og:image" content="https://neoline-contitrans.hu/img/3.jpg" />
+                <meta name="twitter:image" content="https://neoline-contitrans.hu/img/3.jpg" />
             </Head>
         </>
     );

@@ -21,12 +21,12 @@ export default async function formHandler(req, res) {
         let success = false;
         try {
             const mail = {
-                from: `"Teherautó rendelés – ${name}" "admin@contibus.hu"`,
-                to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "admin@contibus.hu",
-                subject: `Teherautórendelés > contibus.hu`,
+                from: `"Teherautó rendelés – ${name}" "admin@neoline-contitrans.hu"`,
+                to: process.env.NODE_ENV == "production" ? "buszrendeles@neoline-contitrans.hu" : "admin@neoline-contitrans.hu",
+                subject: `Teherautórendelés > neoline-contitrans.hu`,
                 replyTo: email,
                 html: ` <html><body style="text-align: center;">
-                <h1>Teherautórendelés űrlap a contibus.hu-n keresztül</h1>
+                <h1>Teherautórendelés űrlap a neoline-contitrans.hu-n keresztül</h1>
                 <hr>
                 <p style="font-weight: bold;">Név:</p><p style="padding-bottom: 20px">${name}</p>
                 <p style="font-weight: bold;">Email cím:</p><p style="padding-bottom: 20px">${email}</p>

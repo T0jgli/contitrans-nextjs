@@ -7,7 +7,7 @@
         "integration-test": "cypress open",
         "build": "next build",
         "build-analyze": "cross-env ANALYZE=true next build",
-        "start": "next start -p 8081"
+        "start": "next start -p 8083"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.4",

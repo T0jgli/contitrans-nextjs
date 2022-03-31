@@ -7,8 +7,8 @@ class MyDocument extends Document {
                 <Head />
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="apple-touch-icon" href="/favicon.ico" />
-                <link rel="alternate" hrefLang="en" href="https://contibus.hu/en" />
-                <link rel="alternate" hrefLang="hu" href="https://contibus.hu" />
+                <link rel="alternate" hrefLang="en" href="https://neoline-contitrans.hu/en" />
+                <link rel="alternate" hrefLang="hu" href="https://neoline-contitrans.hu" />
                 <meta httpEquiv="x-ua-compatible" content="ie=edge" />
                 <meta
                     name="description"
@@ -32,7 +32,7 @@ class MyDocument extends Document {
                 <meta property="og:title" content="ContiTrans" />
                 <meta property="og:type" content="website" />
                 <meta property="og:locale" content="hu_HU" />
-                <meta property="og:image" content="https://contibus.hu/img/3.jpg" />
+                <meta property="og:image" content="https://neoline-contitrans.hu/img/3.jpg" />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:title" content="ContiTrans" />
                 <meta

@@ -170,13 +170,13 @@ const Contact = () => {
                                     <li className="pb-2">
                                         <p>
                                             <MDBIcon far icon="envelope" className="pr-2 grey-text" />
-                                            contibus@contibus.hu
+                                            contibus@neoline-contitrans.hu
                                         </p>
                                     </li>
                                     <li className="pb-3">
                                         <p>
                                             <MDBIcon icon="envelope" className="pr-2 grey-text" />
-                                            buszrendeles@contibus.hu
+                                            buszrendeles@neoline-contitrans.hu
                                         </p>
                                     </li>
                                 </ul>

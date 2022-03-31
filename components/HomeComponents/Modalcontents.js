@@ -70,7 +70,7 @@ export const Allasajanlatcontent = () => {
                 <br />
                 <span className="font-weight-bold">
                     {locale === "en" ? "We are waiting for your CVs: " : "Várjuk az önéletrajzokat: "}
-                    <a href="mailto:#">contibus@contibus.hu</a>
+                    <a href="mailto:#">contibus@neoline-contitrans.hu</a>
                 </span>
             </MDBCardBody>
         </MDBCard>

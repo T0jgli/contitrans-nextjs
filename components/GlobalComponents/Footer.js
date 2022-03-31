@@ -48,7 +48,7 @@ const Footer = () => {
                                 </p>
                                 <p>
                                     <MDBIcon icon="envelope" className="mr-3" />
-                                    contibus@contibus.hu
+                                    contibus@neoline-contitrans.hu
                                 </p>
                                 <p>
                                     <MDBIcon icon="phone" className="mr-3" />

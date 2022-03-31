@@ -49,7 +49,7 @@ const Gallery = () => {
                     <Fade triggerOnce>
                         <MDBCarousel
                             activeItem={1}
-                            length={4}
+                            length={2}
                             showControls={true}
                             showIndicators={false}
                             slide
@@ -63,12 +63,6 @@ const Gallery = () => {
                                 </MDBCarouselItem>
                                 <MDBCarouselItem className="carousel-item" itemId="2">
                                     {galleryfill(4)}
-                                </MDBCarouselItem>
-                                <MDBCarouselItem className="carousel-item" itemId="3">
-                                    {galleryfill(8)}
-                                </MDBCarouselItem>
-                                <MDBCarouselItem className="carousel-item" itemId="4">
-                                    {galleryfill(12)}
                                 </MDBCarouselItem>
                             </MDBCarouselInner>
                         </MDBCarousel>

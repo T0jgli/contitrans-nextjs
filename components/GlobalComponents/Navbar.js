@@ -79,8 +79,8 @@ const Navbar = () => {
             <nav className={`${navbarbg ? "topnav" : ""} animated fadeInDown`}>
                 <div className="navbar__container">
                     <a className="navbar__logo" onClick={() => window.location.reload(false)}>
-                        <MDBIcon icon="bus" />
-                        <span>ContiBUS</span>
+                        <MDBIcon icon="truck" />
+                        <span>ContiTrans</span>
                     </a>
                     <div
                         className={`navbar__mobileicon`}

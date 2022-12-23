@@ -6,7 +6,7 @@ WORKDIR /app
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
-
+ENV NODE_OPTIONS=--openssl-legacy-provider
 #NEXT JS build args
 
 ARG NEXT_PUBLIC_FIREBASE_API_KEY

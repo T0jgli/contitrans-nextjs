@@ -6,7 +6,6 @@ on:
 
 jobs:
     build:
-        needs: e2e-tests
         runs-on: ubuntu-latest
         steps:
             - name: Set up QEMU

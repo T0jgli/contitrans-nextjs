@@ -5,17 +5,6 @@ on:
         branches: [main]
 
 jobs:
-    e2e-tests:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Use Node.js 16
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  cache: "npm"
-            - run: yarn
-            - run: yarn run build
-            - run: ./test.sh
     build:
         needs: e2e-tests
         runs-on: ubuntu-latest

@@ -10,7 +10,7 @@ const OneTruckBody = dynamic(() => import("../../components/TrucksComponents/One
 import { MDBBtn } from "mdbreact";
 import { Fade } from "react-awesome-reveal";
 import { useRouter } from "next/router";
-import { setOneContentfulData } from "../../lib/SetContentFulData";
+import { setIDs, setOneContentfulData } from "../../lib/SetContentFulData";
 
 const OneBus = ({ truckData }) => {
     const router = useRouter();
@@ -37,14 +37,28 @@ const OneBus = ({ truckData }) => {
     );
 };
 
-export async function getServerSideProps({ query, res }) {
-    res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600, stale-while-revalidate=59");
-    const truckData = await setOneContentfulData("trucks", query.truck);
+export async function getStaticProps(context) {
+    const truckData = await setOneContentfulData("trucks", context.params.truck);
 
     return {
         props: {
             truckData: truckData ? truckData[0] : null,
         },
+        revalidate: 60,
+    };
+}
+
+export async function getStaticPaths() {
+    const entries = await setIDs("trucks");
+    const ids = entries.map((e) => ({
+        params: {
+            truck: e.fields.id,
+        },
+    }));
+
+    return {
+        paths: ids,
+        fallback: false, // can also be true or 'blocking'
     };
 }
 

@@ -49,15 +49,14 @@ const Home = ({ trucksData }) => {
     );
 };
 
-export async function getServerSideProps({ res }) {
-    res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600, stale-while-revalidate=59");
-
+export async function getStaticProps() {
     const trucksData = await SetContentFulData("trucks", "sys.createdAt");
 
     return {
         props: {
             trucksData: trucksData || null,
         },
+        revalidate: 60,
     };
 }
 

@@ -1,35 +1,54 @@
-name: Test & Build & Deploy
+name: Build & Deploy
 
 on:
     push:
         branches: [main]
 
 jobs:
-    # cypress-run:
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: copy env file
-    #           run: echo "${{secrets.ENVIRONMENT_VARIABLES }}" > .env
-    #         - name: Checkout
-    #           uses: actions/checkout@v2
-    #         - name: Cypress run
-    #           uses: cypress-io/github-action@v2
-    #           with:
-    #               build: yarn run build
-    #               start: yarn run start
-
+    e2e-tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Use Node.js 16
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: "npm"
+            - run: yarn
+            - run: yarn run build
+            - run: ./test.sh
+    build:
+        needs: e2e-tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set up QEMU
+              uses: docker/setup-qemu-action@v2
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v2
+            - name: Login to Docker Hub
+              uses: docker/login-action@v2
+              with:
+                  username: ${{ secrets.DOCKERHUB_USERNAME }}
+                  password: ${{ secrets.DOCKERHUB_TOKEN }}
+            - name: Build and push
+              uses: docker/build-push-action@v3
+              with:
+                  push: true
+                  tags: contitrans/web:latest
+                  build-args: ${{ secrets.ENV_FILE }}
     deploy:
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Deploy app
-              uses: appleboy/ssh-action@master
+              uses: appleboy/ssh-action@v0.1.2
               with:
                   host: ${{secrets.SSH_HOST}}
                   key: ${{secrets.SSH_KEY}}
                   username: ${{secrets.SSH_USERNAME}}
 
                   script: |
-                      cd /home/tojgli
+                      cd /home/ubuntu
                       cd contitrans
                       git pull
-                      sudo docker-compose up --build -d
+                      sudo docker --config ~/.contitrans compose pull contitrans/web
+                      sudo docker --config ~/.contitrans compose up -d

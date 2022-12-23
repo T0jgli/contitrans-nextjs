@@ -2,9 +2,9 @@ version: "3.3"
 
 services:
     contitrans:
-        image: contitrans
+        image: contitrans/web
         container_name: contitrans
-        build: .
+        #build: .
         restart: always
         ports:
             - 8084:8084

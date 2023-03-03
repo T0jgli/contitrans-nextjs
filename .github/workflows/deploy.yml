@@ -38,5 +38,5 @@ jobs:
                       cd /home/ubuntu
                       cd contitrans
                       git pull
-                      sudo docker --config ~/.contitrans compose pull contitrans/web
+                      sudo docker --config ~/.contitrans compose pull contitrans
                       sudo docker --config ~/.contitrans compose up -d

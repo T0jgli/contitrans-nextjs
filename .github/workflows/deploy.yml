@@ -35,8 +35,8 @@ jobs:
                   username: ${{secrets.SSH_USERNAME}}
 
                   script: |
-                      cd /home/ubuntu
+                      cd /home/github
                       cd contitrans
                       git pull
-                      sudo docker --config ~/.contitrans compose pull contitrans
-                      sudo docker --config ~/.contitrans compose up -d
+                      docker --config ~/.contitrans compose pull contitrans
+                      docker --config ~/.contitrans compose up -d

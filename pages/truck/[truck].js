@@ -48,16 +48,22 @@ export async function getStaticProps(context) {
     };
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
+    let paths = [];
     const entries = await setIDs("trucks");
-    const ids = entries.map((e) => ({
-        params: {
-            truck: e.fields.id,
-        },
-    }));
+    entries.forEach((e) => {
+        for (const locale of locales) {
+            paths.push({
+                params: {
+                    truck: e.fields.id,
+                },
+                locale,
+            });
+        }
+    });
 
     return {
-        paths: ids,
+        paths: paths,
         fallback: false, // can also be true or 'blocking'
     };
 }

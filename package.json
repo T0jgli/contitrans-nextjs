@@ -3,7 +3,7 @@
     "version": "1.1.1",
     "license": "GPL-3.0-or-later",
     "scripts": {
-        "dev": "next dev -p 3001",
+        "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev -p 3001",
         "integration-test": "cypress open",
         "build": "next build",
         "build-analyze": "cross-env ANALYZE=true next build",

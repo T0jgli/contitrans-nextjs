@@ -38,7 +38,7 @@ jobs:
                   aws-region: eu-central-1
             - name: Download task definition
               run: |
-                  aws ecs describe-task-definition --task-definition contibus --query taskDefinition > task-definition.json
+                  aws ecs describe-task-definition --task-definition contitrans --query taskDefinition > task-definition.json
                   echo $(cat task-definition.json | jq 'del(
                             .taskDefinitionArn,
                             .requiresAttributes,

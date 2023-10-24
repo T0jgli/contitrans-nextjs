@@ -61,7 +61,7 @@ jobs:
                   task-definition: ${{ steps.task-def.outputs.task-definition }}
                   service: contitrans
                   cluster: neoline
-                  wait-for-service-stability: true
+                  wait-for-service-stability: false
 
             # - name: Deploy app
             #   uses: appleboy/ssh-action@v0.1.2

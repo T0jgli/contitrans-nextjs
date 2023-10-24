@@ -1,5 +1,5 @@
 # pull the base image
-FROM node:alpine
+FROM node:lts-alpine
 
 # set the working direction
 WORKDIR /app

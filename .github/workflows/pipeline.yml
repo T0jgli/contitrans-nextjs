@@ -12,7 +12,7 @@ jobs:
             contents: read
             packages: write
         outputs:
-            image: ${{ steps.build-image.outputs.imageid }}
+            image: ${{ steps.login-ecr.outputs.registry }}/contibus
             digest: ${{ steps.build-image.outputs.digest }}
         steps:
             - name: Configure AWS credentials

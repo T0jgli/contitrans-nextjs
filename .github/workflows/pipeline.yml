@@ -7,34 +7,59 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+            contents: read
+            packages: write
         outputs:
-            image: ${{ steps.build-image.outputs.digest }}
+            image: ${{ steps.build-image.outputs.imageid }}
+            digest: ${{ steps.build-image.outputs.digest }}
         steps:
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: arn:aws:iam::574681690878:role/githubRole
+                  aws-region: eu-central-1
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v2
-            - name: Login to Docker Hub
-              uses: docker/login-action@v2
-              with:
-                  username: ${{ secrets.DOCKERHUB_USERNAME }}
-                  password: ${{ secrets.DOCKERHUB_TOKEN }}
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v2
             - name: Build and push
               id: build-image
               uses: docker/build-push-action@v3
               with:
                   push: true
-                  tags: contitrans/web:latest
+                  tags: ${{ steps.login-ecr.outputs.registry }}/contitrans:latest
                   build-args: ${{ secrets.ENV_FILE }}
+                  cache-from: type=gha
+                  cache-to: type=gha,mode=max
+            # - name: Login to Docker Hub
+            #   uses: docker/login-action@v2
+            #   with:
+            #       username: ${{ secrets.DOCKERHUB_USERNAME }}
+            #       password: ${{ secrets.DOCKERHUB_TOKEN }}
+            # - name: Build and push
+            #   id: build-image
+            #   uses: docker/build-push-action@v3
+            #   with:
+            #       push: true
+            #       tags: contitrans/web:latest
+            #       build-args: ${{ secrets.ENV_FILE }}
     deploy:
         needs: build
         runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+            contents: read
+            packages: write
         steps:
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
-                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  role-to-assume: arn:aws:iam::574681690878:role/githubRole
                   aws-region: eu-central-1
             - name: Download task definition
               run: |
@@ -54,7 +79,7 @@ jobs:
               with:
                   task-definition: task-definition.json
                   container-name: contitrans
-                  image: contitrans/web@${{ needs.build.outputs.image }}
+                  image: ${{ needs.build.outputs.image }}@${{ needs.build.outputs.digest }}
             - name: Deploy Amazon ECS task definition
               uses: aws-actions/amazon-ecs-deploy-task-definition@v1
               with:

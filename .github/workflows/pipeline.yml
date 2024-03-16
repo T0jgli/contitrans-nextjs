@@ -47,7 +47,7 @@ jobs:
               with:
                   platforms: linux/arm64
                   push: true
-                  tags: europe-west3-docker.pkg.dev/kalandozastravel/contitrans:latest
+                  tags: europe-west3-docker.pkg.dev/kalandozastravel/contitrans/contitrans:latest
                   build-args: ${{ secrets.ENV_FILE }}
                   cache-from: type=gha
                   cache-to: type=gha,mode=max

@@ -71,48 +71,48 @@ jobs:
             contents: read
             packages: write
         steps:
-            - name: Configure AWS credentials
-              uses: aws-actions/configure-aws-credentials@v4
-              with:
-                  role-to-assume: arn:aws:iam::574681690878:role/githubRole
-                  aws-region: eu-central-1
-            - name: Download task definition
-              run: |
-                  aws ecs describe-task-definition --task-definition contitrans --query taskDefinition > task-definition.json
-                  echo $(cat task-definition.json | jq 'del(
-                            .taskDefinitionArn,
-                            .requiresAttributes,
-                            .compatibilities,
-                            .revision,
-                            .status,
-                            .registeredAt,
-                            .registeredBy
-                        )') > task-definition.json
-            - name: Fill in the new image ID in the Amazon ECS task definition
-              id: task-def
-              uses: aws-actions/amazon-ecs-render-task-definition@v1
-              with:
-                  task-definition: task-definition.json
-                  container-name: contitrans
-                  image: ${{ needs.build.outputs.image }}@${{ needs.build.outputs.digest }}
-            - name: Deploy Amazon ECS task definition
-              uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-              with:
-                  task-definition: ${{ steps.task-def.outputs.task-definition }}
-                  service: contitrans
-                  cluster: neoline
-                  wait-for-service-stability: false
-
-            # - name: Deploy app
-            #   uses: appleboy/ssh-action@v0.1.2
+            # - name: Configure AWS credentials
+            #   uses: aws-actions/configure-aws-credentials@v4
             #   with:
-            #       host: ${{secrets.SSH_HOST}}
-            #       key: ${{secrets.SSH_KEY}}
-            #       username: ${{secrets.SSH_USERNAME}}
+            #       role-to-assume: arn:aws:iam::574681690878:role/githubRole
+            #       aws-region: eu-central-1
+            # - name: Download task definition
+            #   run: |
+            #       aws ecs describe-task-definition --task-definition contitrans --query taskDefinition > task-definition.json
+            #       echo $(cat task-definition.json | jq 'del(
+            #                 .taskDefinitionArn,
+            #                 .requiresAttributes,
+            #                 .compatibilities,
+            #                 .revision,
+            #                 .status,
+            #                 .registeredAt,
+            #                 .registeredBy
+            #             )') > task-definition.json
+            # - name: Fill in the new image ID in the Amazon ECS task definition
+            #   id: task-def
+            #   uses: aws-actions/amazon-ecs-render-task-definition@v1
+            #   with:
+            #       task-definition: task-definition.json
+            #       container-name: contitrans
+            #       image: ${{ needs.build.outputs.image }}@${{ needs.build.outputs.digest }}
+            # - name: Deploy Amazon ECS task definition
+            #   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+            #   with:
+            #       task-definition: ${{ steps.task-def.outputs.task-definition }}
+            #       service: contitrans
+            #       cluster: neoline
+            #       wait-for-service-stability: false
 
-            #       script: |
-            #           cd /home/github
-            #           cd contitrans
-            #           git pull
-            #           docker --config ~/.contitrans compose pull contitrans
-            #           docker --config ~/.contitrans compose up -d
+            - name: Deploy app
+              uses: appleboy/ssh-action@v0.1.2
+              with:
+                  host: ${{secrets.SSH_HOST}}
+                  key: ${{secrets.SSH_KEY}}
+                  username: ${{secrets.SSH_USERNAME}}
+
+                  script: |
+                      cd /home/github
+                      cd contitrans
+                      git pull
+                      docker --config ~/.contitrans compose pull contitrans
+                      docker --config ~/.contitrans compose up -d

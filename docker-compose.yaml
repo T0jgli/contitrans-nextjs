@@ -2,9 +2,22 @@ version: "3.3"
 
 services:
     contitrans:
-        image: contitrans/web
+        image: europe-west3-docker.pkg.dev/kalandozastravel/contitrans/contitrans
         container_name: contitrans
         #build: .
         restart: always
         ports:
             - 8084:8084
+        labels:
+            - traefik.http.routers.contitrans.rule=Host(`neoline-contitrans.hu`) || Host(`www.neoline-contitrans.hu`)
+            - traefik.http.routers.contitrans.tls=true
+            - traefik.http.routers.contitrans.tls.certresolver=le
+            - traefik.http.routers.contitrans.middlewares=security-headers@file
+            - traefik.http.routers.contitrans.middlewares=redirect-www@file
+            - "com.centurylinklabs.watchtower.enable=false"
+            - traefik.http.services.contitrans.loadbalancer.server.port=8084
+        networks:
+          - web
+networks:
+  web:
+    external: true

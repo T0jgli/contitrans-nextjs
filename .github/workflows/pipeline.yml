@@ -122,5 +122,5 @@ jobs:
                       cd /home/github
                       cd contitrans
                       git pull
-                      docker --config ~/.contitrans compose pull contitrans
-                      docker --config ~/.contitrans compose up -d
+                      docker compose pull contitrans
+                      docker compose up -d

@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
     contitrans:
-        image: europe-west3-docker.pkg.dev/kalandozastravel/contitrans/contitrans
+        image: registry.kvlk.hu/contitrans
         container_name: contitrans
         #build: .
         restart: always
@@ -17,7 +17,7 @@ services:
             - "com.centurylinklabs.watchtower.enable=false"
             - traefik.http.services.contitrans.loadbalancer.server.port=8084
         networks:
-          - web
+            - web
 networks:
-  web:
-    external: true
+    web:
+        external: true

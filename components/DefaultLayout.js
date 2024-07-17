@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { setbusesData, setmuzeumData, settrucksData } from "../lib/redux/reducers";
 
 import Navbar from "./GlobalComponents/Navbar";
-import SetContentFulData from "../lib/SetContentFulData";
 import { useRouter } from "next/router";
 import ReactGA from "react-ga";
 import dynamic from "next/dynamic";

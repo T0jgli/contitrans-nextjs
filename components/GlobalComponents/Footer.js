@@ -84,7 +84,7 @@ const Footer = () => {
                         <span className="white-text">
                             <i className="fas fa-times"></i>
                         </span>
-                        <a style={{ opacity: "0.75" }} href="https://www.instagram.com/kovalikadam/" rel="noopener noreferrer" target="_blank">
+                        <a style={{ opacity: "0.75" }} href="https://kvlk.hu/" rel="noopener noreferrer" target="_blank">
                             {" "}
                             tojglee
                         </a>
